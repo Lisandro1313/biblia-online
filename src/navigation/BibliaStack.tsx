@@ -4,8 +4,9 @@ import InicioScreen from '../screens/InicioScreen';
 import LibrosScreen from '../screens/LibrosScreen';
 import CapitulosScreen from '../screens/CapitulosScreen';
 import LecturaScreen from '../screens/LecturaScreen';
+import type { BibliaStackParamList } from './types';
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<BibliaStackParamList>();
 
 const screenOptions = {
   headerStyle: { backgroundColor: '#1a2a3a' },
@@ -18,7 +19,7 @@ export default function BibliaStack() {
     <Stack.Navigator screenOptions={screenOptions}>
       <Stack.Screen name="Inicio" component={InicioScreen} options={{ title: '📖 Biblia RVR1960' }} />
       <Stack.Screen name="Libros" component={LibrosScreen} options={{ title: 'Libros' }} />
-      <Stack.Screen name="Capitulos" component={CapitulosScreen} options={({ route }: any) => ({ title: route.params.libro.nombre })} />
+      <Stack.Screen name="Capitulos" component={CapitulosScreen} options={({ route }) => ({ title: route.params.libro.nombre })} />
       <Stack.Screen name="Lectura" component={LecturaScreen} options={{ title: 'Lectura' }} />
     </Stack.Navigator>
   );

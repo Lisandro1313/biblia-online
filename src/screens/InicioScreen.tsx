@@ -1,8 +1,12 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import { getVersiculoDelDia, VERSICULOS_DESTACADOS } from '../data/bibliaApi';
+import type { StackScreenProps } from '@react-navigation/stack';
+import type { BibliaStackParamList } from '../navigation/types';
 
-export default function InicioScreen({ navigation }: any) {
+type Props = StackScreenProps<BibliaStackParamList, 'Inicio'>;
+
+export default function InicioScreen({ navigation }: Props) {
   const versiculo = getVersiculoDelDia();
 
   return (

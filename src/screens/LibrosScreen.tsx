@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, FlatList, TextInput } from 'react-native';
 import { LIBROS } from '../data/libros';
+import type { StackScreenProps } from '@react-navigation/stack';
+import type { BibliaStackParamList } from '../navigation/types';
 
-export default function LibrosScreen({ navigation }: any) {
+type Props = StackScreenProps<BibliaStackParamList, 'Libros'>;
+
+export default function LibrosScreen({ navigation }: Props) {
   const [busqueda, setBusqueda] = useState('');
   const [testamento, setTestamento] = useState<'AT' | 'NT' | 'todos'>('todos');
 

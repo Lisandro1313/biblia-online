@@ -1,9 +1,12 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
-import { Libro } from '../data/libros';
+import type { StackScreenProps } from '@react-navigation/stack';
+import type { BibliaStackParamList } from '../navigation/types';
 
-export default function CapitulosScreen({ route, navigation }: any) {
-  const libro: Libro = route.params.libro;
+type Props = StackScreenProps<BibliaStackParamList, 'Capitulos'>;
+
+export default function CapitulosScreen({ route, navigation }: Props) {
+  const libro = route.params.libro;
   const capitulos = Array.from({ length: libro.capitulos }, (_, i) => i + 1);
 
   return (

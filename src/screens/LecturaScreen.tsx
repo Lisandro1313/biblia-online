@@ -5,10 +5,13 @@ import {
 } from 'react-native';
 import { getCapitulo, Versiculo } from '../data/bibliaApi';
 import { useFavoritos } from '../context/FavoritosContext';
-import { Libro } from '../data/libros';
+import type { StackScreenProps } from '@react-navigation/stack';
+import type { BibliaStackParamList } from '../navigation/types';
 
-export default function LecturaScreen({ route, navigation }: any) {
-  const { libro, capitulo }: { libro: Libro; capitulo: number } = route.params;
+type Props = StackScreenProps<BibliaStackParamList, 'Lectura'>;
+
+export default function LecturaScreen({ route, navigation }: Props) {
+  const { libro, capitulo } = route.params;
   const [versiculos, setVersiculos] = useState<Versiculo[]>([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(false);
