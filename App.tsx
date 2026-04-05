@@ -5,6 +5,8 @@ import { Text } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import BibliaStack from './src/navigation/BibliaStack';
 import FavoritosScreen from './src/screens/FavoritosScreen';
+import BusquedaScreen from './src/screens/BusquedaScreen';
+import PlanScreen from './src/screens/PlanScreen';
 import { FavoritosProvider } from './src/context/FavoritosContext';
 
 const Tab = createBottomTabNavigator();
@@ -42,6 +44,32 @@ export default function App() {
             component={FavoritosScreen}
             options={{
               tabBarIcon: ({ color }) => <Text style={{ fontSize: 22, color }}>⭐</Text>,
+            }}
+          />
+          <Tab.Screen
+            name="Buscar"
+            component={BusquedaScreen}
+            options={{
+              title: 'Buscar',
+              tabBarIcon: ({ color }) => <Text style={{ fontSize: 22, color }}>🔍</Text>,
+              headerShown: true,
+              headerStyle: { backgroundColor: '#1a2a3a' },
+              headerTintColor: '#C9A84C',
+              headerTitleStyle: { fontWeight: '700' as const },
+              headerTitle: '🔍 Buscar versículos',
+            }}
+          />
+          <Tab.Screen
+            name="Plan"
+            component={PlanScreen}
+            options={{
+              title: 'Plan',
+              tabBarIcon: ({ color }) => <Text style={{ fontSize: 22, color }}>📅</Text>,
+              headerShown: true,
+              headerStyle: { backgroundColor: '#1a2a3a' },
+              headerTintColor: '#C9A84C',
+              headerTitleStyle: { fontWeight: '700' as const },
+              headerTitle: '📅 Plan de Lectura',
             }}
           />
         </Tab.Navigator>
